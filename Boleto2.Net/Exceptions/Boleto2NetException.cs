@@ -57,7 +57,10 @@ namespace Boleto2Net.Exceptions
 
         public static Exception NossoNumeroInvalido(string nossoNumero, int digitos)
             => new Boleto2NetException($"O nosso número ({nossoNumero}) deve conter {digitos} dígitos.");
-        
+
+        public static Exception NumeroSequencialInvalido(int numeroSequencial)
+            => new Boleto2NetException($"Número sequencial é inválido: {numeroSequencial}");
+
         public static Exception NossoNumeroDigitoInvalido(string nossoNumeroDigito, int digitos)
             => new Boleto2NetException($"O dígito do nosso número ({nossoNumeroDigito}) deve conter {digitos} dígitos.");
 

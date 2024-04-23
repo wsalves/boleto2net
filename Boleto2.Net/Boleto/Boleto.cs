@@ -123,6 +123,7 @@ namespace Boleto2Net
 
         public string IdentificadorDebitoAutomatico { get; set; } = string.Empty;
         public string AvisoDebitoAutomatico { get; set; } = string.Empty;
+        public string ByteNossoNumero { get; set; } = "2";
 
         public void ValidarDados()
         {

@@ -17,12 +17,12 @@ namespace Boleto2Net.Testes
             return new Cedente
             {
                 CPFCNPJ = "86.875.666/0001-09",
-                Nome = "Cedente Teste",
+                Nome = "Beneficiario Teste",
                 Codigo = codigoCedente,
                 CodigoDV = digitoCodigoCedente,
                 Endereco = new Endereco
                 {
-                    LogradouroEndereco = "Rua Teste do Cedente",
+                    LogradouroEndereco = "Rua Teste do Beneficiário",
                     LogradouroNumero = "789",
                     LogradouroComplemento = "Cj 333",
                     Bairro = "Bairro",
@@ -40,7 +40,7 @@ namespace Boleto2Net.Testes
                 return new Sacado
                 {
                     CPFCNPJ = "443.316.101-28",
-                    Nome = "Sacado Teste PF",
+                    Nome = "Pagador Teste PF",
                     Observacoes = "Matricula 678/9",
                     Endereco = new Endereco
                     {
@@ -49,13 +49,13 @@ namespace Boleto2Net.Testes
                         Bairro = "Bairro",
                         Cidade = "Cidade",
                         UF = "SP",
-                        CEP = "56789012"
+                        CEP = "04205000"
                     }
                 };
             return new Sacado
             {
                 CPFCNPJ = "71.738.978/0001-01",
-                Nome = "Sacado Teste PJ",
+                Nome = "Pagador Teste PJ",
                 Observacoes = "Matricula 123/4",
                 Endereco = new Endereco
                 {
@@ -64,7 +64,7 @@ namespace Boleto2Net.Testes
                     Bairro = "Bairro",
                     Cidade = "Cidade",
                     UF = "SP",
-                    CEP = "12345678"
+                    CEP = "01013020"
                 }
             };
         }
@@ -106,6 +106,7 @@ namespace Boleto2Net.Testes
                 DataJuros = DateTime.Now.AddMonths(i),
                 PercentualJurosDia = (decimal)0.2,
                 ValorJurosDia = (decimal)(100 * i * (0.2 / 100)),
+                //AvisoDebitoAutomaticoContaCorrente = "2",
                 MensagemArquivoRemessa = "Mensagem para o arquivo remessa",
                 NumeroControleParticipante = "CHAVEPRIMARIA=" + _proximoNossoNumero
             };
@@ -122,7 +123,7 @@ namespace Boleto2Net.Testes
             if (_contador % 3 == 0)
             {
                 boleto.Avalista = GerarSacado();
-                boleto.Avalista.Nome = boleto.Avalista.Nome.Replace("Sacado", "Avalista");
+                boleto.Avalista.Nome = boleto.Avalista.Nome.Replace("Pagador", "Avalista");
             }
             // Grupo Demonstrativo do Boleto
             var grupoDemonstrativo = new GrupoDemonstrativo { Descricao = "GRUPO 1" };
